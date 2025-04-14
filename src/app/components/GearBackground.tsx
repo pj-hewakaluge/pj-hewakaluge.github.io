@@ -95,7 +95,7 @@ const GearBackground = () => {
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    [0.3, 0.5, 0.5, 0.3]
+    [0.5, 0.7, 0.7, 0.5]
   );
 
   // Scale effect based on scroll
@@ -142,8 +142,8 @@ const GearBackground = () => {
           }}
         >
           <GearSVG 
-            className="w-64 h-64" 
-            fillColor="rgba(255, 69, 0, 0.15)" 
+            className="w-72 h-72 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.3)" 
             rotationSpeed={60}
             initialRotation={rotations.gear1}
           />
@@ -160,8 +160,8 @@ const GearBackground = () => {
           }}
         >
           <GearSVG 
-            className="w-48 h-48" 
-            fillColor="rgba(255, 69, 0, 0.12)" 
+            className="w-56 h-56 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.25)" 
             rotationSpeed={45}
             reverse={true}
             initialRotation={rotations.gear2}
@@ -178,8 +178,8 @@ const GearBackground = () => {
           }}
         >
           <GearSVG 
-            className="w-32 h-32" 
-            fillColor="rgba(255, 69, 0, 0.14)" 
+            className="w-40 h-40 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.28)" 
             rotationSpeed={30}
             initialRotation={rotations.gear3}
           />
@@ -195,8 +195,8 @@ const GearBackground = () => {
           }}
         >
           <GearSVG 
-            className="w-24 h-24" 
-            fillColor="rgba(255, 69, 0, 0.1)" 
+            className="w-32 h-32 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.22)" 
             rotationSpeed={50}
             reverse={true}
             initialRotation={rotations.gear4}
@@ -213,10 +213,27 @@ const GearBackground = () => {
           }}
         >
           <GearSVG 
-            className="w-36 h-36" 
-            fillColor="rgba(255, 69, 0, 0.13)" 
+            className="w-44 h-44 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.26)" 
             rotationSpeed={40}
             initialRotation={rotations.gear5}
+          />
+        </motion.div>
+        
+        {/* Add a new additional gear for more visual interest */}
+        <motion.div
+          className="absolute left-1/3 top-1/4"
+          style={{ 
+            rotate: useTransform(scrollYProgress, [0, 1], [0, 400]),
+            y: useTransform(scrollYProgress, [0, 1], [0, 170]),
+            x: useTransform(smoothMouseX, value => value * 3),
+          }}
+        >
+          <GearSVG 
+            className="w-48 h-48 gear-highlight" 
+            fillColor="rgba(255, 69, 0, 0.27)" 
+            rotationSpeed={35}
+            initialRotation={rotations.gear1}
           />
         </motion.div>
       </motion.div>

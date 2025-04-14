@@ -38,7 +38,7 @@ body {
 /* Create a smaller cursor for clicking interactions */
 a, button, input[type="submit"], 
 [role="button"], [tabindex="0"] {
-  cursor: url('/images/rocket-cursor.svg') 12 12, pointer;
+  cursor: url('/images/rocket-cursor-small.svg') 12 12, pointer;
 }
 
 /* Custom scrollbar */
@@ -82,4 +82,9 @@ a, button, input[type="submit"],
 
 .border-gradient {
   border-image: linear-gradient(to right, var(--primary), var(--secondary)) 1;
+}
+
+/* Enhance gear visibility */
+.gear-highlight {
+  filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.5));
 }
