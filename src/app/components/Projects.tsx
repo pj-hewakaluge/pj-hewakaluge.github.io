@@ -149,21 +149,6 @@ const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <a 
-            href="#contact"
-            className="inline-flex items-center gap-2 text-[#ff4500] hover:text-[#ff7e47] font-medium transition-colors duration-300"
-          >
-            <span>See more projects on GitHub</span>
-            <FontAwesomeIcon icon={faExternalLinkAlt} className="h-4 w-4" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

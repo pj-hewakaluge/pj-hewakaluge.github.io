@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #121212;
+  --background: #0a0a0a;
   --foreground: #f5f5f5;
   --primary: #ff4500;
   --primary-dark: #cc3700;
@@ -32,6 +32,13 @@ body {
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  cursor: url('/images/rocket-cursor.svg'), auto;
+}
+
+/* Create a smaller cursor for clicking interactions */
+a, button, input[type="submit"], 
+[role="button"], [tabindex="0"] {
+  cursor: url('/images/rocket-cursor-small.svg'), pointer;
 }
 
 /* Custom scrollbar */

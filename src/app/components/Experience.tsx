@@ -40,7 +40,7 @@ const Experience = () => {
       company: "McGill Robotics – Drone Team",
       title: "Drone Mechanical Member",
       period: "September 2024 – Present",
-      location: "Montreal, Quebec",
+      location: "Montreal, Canada",
       icon: faPlane,
       color: "#ff7e47",
       skills: ["Fusion 360", "Laser Cutting", "Glass Fiber", "Wet Layup"],
