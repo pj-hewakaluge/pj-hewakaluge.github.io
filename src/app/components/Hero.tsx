@@ -133,17 +133,13 @@ const Hero = () => {
           >
             <div className="w-64 h-80 bg-white transform -rotate-6 rounded-lg shadow-xl overflow-hidden">
               <div className="w-full h-full transform rotate-6 overflow-hidden relative">
-                {/* Replace with actual headshot when available */}
-                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 text-lg font-medium">Headshot</span>
-                </div>
-                {/* Uncomment when you have a real image */}
-                {/* <Image 
+                
+                <Image 
                   src="/images/headshot.jpg"
                   alt="Pankaja Hewakaluge"
                   fill
                   className="object-cover"
-                /> */}
+                />
               </div>
             </div>
           </motion.div>

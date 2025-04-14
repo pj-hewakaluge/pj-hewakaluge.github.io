@@ -32,13 +32,13 @@ body {
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  cursor: url('/images/rocket-cursor.svg'), auto;
+  cursor: url('/images/rocket-cursor.svg') 16 16, auto;
 }
 
 /* Create a smaller cursor for clicking interactions */
 a, button, input[type="submit"], 
 [role="button"], [tabindex="0"] {
-  cursor: url('/images/rocket-cursor-small.svg'), pointer;
+  cursor: url('/images/rocket-cursor.svg') 12 12, pointer;
 }
 
 /* Custom scrollbar */
