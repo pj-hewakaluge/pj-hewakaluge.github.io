@@ -30,6 +30,26 @@ const GearBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
+  // Fixed initial rotations for server rendering consistency
+  const [rotations, setRotations] = useState({
+    gear1: 0,
+    gear2: 0,
+    gear3: 0,
+    gear4: 0,
+    gear5: 0
+  });
+  
+  // Initialize random rotations on client-side only
+  useEffect(() => {
+    setRotations({
+      gear1: Math.random() * 360,
+      gear2: Math.random() * 360,
+      gear3: Math.random() * 360,
+      gear4: Math.random() * 360,
+      gear5: Math.random() * 360
+    });
+  }, []);
+  
   // Create springy animations for mouse movement
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -125,7 +145,7 @@ const GearBackground = () => {
             className="w-64 h-64" 
             fillColor="rgba(255, 69, 0, 0.15)" 
             rotationSpeed={60}
-            initialRotation={Math.random() * 360}
+            initialRotation={rotations.gear1}
           />
         </motion.div>
 
@@ -144,7 +164,7 @@ const GearBackground = () => {
             fillColor="rgba(255, 69, 0, 0.12)" 
             rotationSpeed={45}
             reverse={true}
-            initialRotation={Math.random() * 360}
+            initialRotation={rotations.gear2}
           />
         </motion.div>
 
@@ -161,7 +181,7 @@ const GearBackground = () => {
             className="w-32 h-32" 
             fillColor="rgba(255, 69, 0, 0.14)" 
             rotationSpeed={30}
-            initialRotation={Math.random() * 360}
+            initialRotation={rotations.gear3}
           />
         </motion.div>
 
@@ -179,7 +199,7 @@ const GearBackground = () => {
             fillColor="rgba(255, 69, 0, 0.1)" 
             rotationSpeed={50}
             reverse={true}
-            initialRotation={Math.random() * 360}
+            initialRotation={rotations.gear4}
           />
         </motion.div>
         
@@ -196,7 +216,7 @@ const GearBackground = () => {
             className="w-36 h-36" 
             fillColor="rgba(255, 69, 0, 0.13)" 
             rotationSpeed={40}
-            initialRotation={Math.random() * 360}
+            initialRotation={rotations.gear5}
           />
         </motion.div>
       </motion.div>
