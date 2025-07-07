@@ -114,7 +114,7 @@ const Experience = () => {
           </h2>
           <div className="w-20 h-1 bg-[#ff4500] rounded-full mb-6"></div>
           <p className="text-gray-400 max-w-3xl">
-            My professional journey has equipped me with hands-on experience in engineering research, design, and manufacturing. Here's where I've applied my skills and gained valuable industry insight.
+            My professional journey has equipped me with hands-on experience in engineering research, design, and manufacturing. Here&apos;s where I&apos;ve applied my skills and gained valuable industry insight.
           </p>
         </motion.div>
 
@@ -124,7 +124,7 @@ const Experience = () => {
           animate={isInView ? "visible" : "hidden"}
           className="space-y-12"
         >
-          {experiences.map((exp, index) => (
+          {experiences.map((exp) => (
             <motion.div 
               key={exp.id}
               variants={cardVariants}

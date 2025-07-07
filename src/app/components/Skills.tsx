@@ -6,13 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faCode, 
   faLaptopCode, 
-  faCogs, 
-  faTools,
-  faHammer,
-  faLayerGroup,
-  faCubes,
-  faPrint,
-  faLaptop
+  faTools
 } from '@fortawesome/free-solid-svg-icons';
 
 const Skills = () => {
@@ -95,7 +89,7 @@ const Skills = () => {
           </h2>
           <div className="w-24 h-1 bg-[#ff4500] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            My toolkit encompasses specialized software, hands-on manufacturing techniques, and programming skills that I've developed throughout my engineering education and experience.
+            My toolkit encompasses specialized software, hands-on manufacturing techniques, and programming skills that I&apos;ve developed throughout my engineering education and experience.
           </p>
         </motion.div>
 

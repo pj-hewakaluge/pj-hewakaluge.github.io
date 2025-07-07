@@ -20,7 +20,7 @@ const Leadership = () => {
       id: 1,
       role: "U2 Mechanical Engineering Representative",
       organization: "McGill Association of Mechanical Engineers (MAME)",
-      period: "May 2024 – Present",
+      period: "May 2024 – April 2025",
       location: "McGill University",
       icon: faUsers,
       color: "#ff4500",
@@ -98,7 +98,7 @@ const Leadership = () => {
           </h2>
           <div className="w-20 h-1 bg-[#ff4500] rounded-full mb-6"></div>
           <p className="text-gray-400 max-w-3xl">
-            Beyond academics and professional work, I've taken on leadership roles and participated in activities that broaden my perspective and develop my collaborative abilities.
+            Beyond academics and professional work, I&apos;ve taken on leadership roles and participated in activities that broaden my perspective and develop my collaborative abilities.
           </p>
         </motion.div>
 
@@ -164,7 +164,7 @@ const Leadership = () => {
                       <div className="min-w-5 mr-2 mt-1.5">
                         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: role.color }}></div>
                       </div>
-                      <span>{item}</span>
+                      <span>{item.replace(/'/g, "&apos;")}</span>
                     </motion.li>
                   ))}
                 </ul>

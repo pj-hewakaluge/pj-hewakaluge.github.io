@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +19,7 @@ const Hero = () => {
               transition={{ duration: 0.8 }}
               className="mb-6"
             >
-              <h2 className="text-xl md:text-2xl font-semibold text-[#ff4500]">Hello, I'm</h2>
+              <h2 className="text-xl md:text-2xl font-semibold text-[#ff4500]">Hello, I&apos;m</h2>
             </motion.div>
             
             <motion.div
@@ -50,7 +49,7 @@ const Hero = () => {
               className="mb-8 max-w-2xl"
             >
               <p className="text-base md:text-lg text-gray-400">
-                I'm a mechanical engineering student at McGill University with a passion for innovative design, composite materials, and advanced manufacturing. My expertise spans from CAD modeling to experimental testing and programming for data analysis.
+                I&apos;m a mechanical engineering student at McGill University with a passion for innovative design, composite materials, and advanced manufacturing. My expertise spans from CAD modeling to experimental testing and programming for data analysis.
               </p>
             </motion.div>
 
