@@ -8,12 +8,10 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Leadership from "./components/Leadership";
 import ScrollToTop from "./components/ScrollToTop";
-import GearBackground from "./components/GearBackground";
 
 export default function Home() {
   return (
     <main className="relative">
-      <GearBackground />
       <Navbar />
       <Hero />
       <Education />

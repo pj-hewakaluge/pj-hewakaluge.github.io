@@ -19,6 +19,22 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      company: "Rolls-Royce Aerospace",
+      title: "Mechanical Engineering Intern",
+      period: "May 2025 – August 2025",
+      location: "Montreal, Quebec",
+      icon: faBuilding,
+      color: "#00539b",
+      skills: ["AutoCAD", "CNC", "Technical Documentation", "Risk Assessment", "Manufacturing"],
+      description: [
+        "Analyzed repair documentation and technical variance sheets, identifying cross-model efficiencies by evaluating materials and structural integrity.",
+        "Conducted tool standardization projects, authored comprehensive documentation, and led risk assessments to ensure compliance with aerospace standards.",
+        "Developed precise technical drawings in AutoCAD, enhancing clarity and operational efficiency in tooling processes.",
+        "Initiated a project to streamline CNC machine operations by optimizing G-code generation, improving manufacturing throughput."
+      ]
+    },
+    {
+      id: 2,
       company: "Composites Research Network – Boeing/UBC",
       title: "Trainee Engineer",
       period: "May 2024 – August 2024",
@@ -36,10 +52,10 @@ const Experience = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
       company: "McGill Robotics – Drone Team",
       title: "Drone Mechanical Member",
-      period: "September 2024 – Present",
+      period: "September 2024 – April 2025",
       location: "Montreal, Canada",
       icon: faPlane,
       color: "#ff7e47",
@@ -49,7 +65,7 @@ const Experience = () => {
         "Generated DXF files from 3D models to enable precise laser cutting of wooden hot wire templates.",
         "Fabricated airfoil components using the wet layup method with glass fiber and resin."
       ]
-    }
+    },
   ];
 
   const containerVariants = {

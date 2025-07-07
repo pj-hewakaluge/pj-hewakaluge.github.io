@@ -1,11 +1,29 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt, faCode, faRobot, faMicrochip, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+interface Project {
+  title: string;
+  description: string;
+  image?: string;
+  icon: any;
+  links?: {
+    github?: string;
+    youtube?: string;
+    demo?: string;
+  };
+}
+
+interface ProjectCardProps {
+  project: Project;
+  isActive: boolean;
+  onClick: () => void;
+}
 
 const Projects = () => {
   const sectionRef = useRef(null);
@@ -13,19 +31,14 @@ const Projects = () => {
 
   const projects = [
     {
-      id: 1,
       title: "Pipe Inspection Robot",
-      period: "September 2023 – December 2023",
-      skills: ["SolidWorks", "DFM", "DFA", "Mechanical Design"],
-      description: [
-        "Created 3D models of an inspection robot, ensuring practicality through DFM and DFA methods.",
-        "Organized an iterative design process by collecting feedback and data analytics to enhance functionality, resulting in a 40% decrease in the total number of parts.",
-        "Collaborated effectively in a team, contributing innovative ideas and design process insights."
-      ],
-      image: "/placeholder-project.jpg",
-      links: [
-        { icon: faGithub, url: "#", label: "GitHub" }
-      ]
+      description: "An autonomous robot designed to inspect and navigate through pipes, equipped with sensors and a camera system.",
+      image: "/images/projects/pipe-inspection-robot.jpg",
+      icon: faRobot,
+      links: {
+        github: "https://github.com/yourusername/pipe-inspection-robot",
+        youtube: "https://youtube.com/your-video-link"
+      }
     }
   ];
 
@@ -46,6 +59,55 @@ const Projects = () => {
       opacity: 1,
       transition: { duration: 0.6, ease: "easeOut" }
     }
+  };
+
+  const ProjectCard = ({ project, isActive, onClick }: ProjectCardProps) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+    return (
+      <motion.div
+        className={`relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 ${
+          isActive ? 'ring-2 ring-[#ff4500]' : 'hover:ring-1 hover:ring-[#ff4500]/50'
+        }`}
+        onClick={onClick}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="relative aspect-video overflow-hidden">
+          {project.image && (
+            <div className="relative w-full h-full">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className={`object-cover transition-transform duration-500 ${
+                  isHovered ? 'scale-110' : 'scale-100'
+                }`}
+                onLoadingComplete={() => setIsImageLoaded(true)}
+              />
+              {!isImageLoaded && (
+                <div className="absolute inset-0 bg-gray-800 animate-pulse" />
+              )}
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <h3 className="text-white text-lg font-semibold">{project.title}</h3>
+            <p className="text-gray-300 text-sm mt-1">{project.description}</p>
+          </div>
+        </div>
+        <div className="absolute top-0 right-0 p-2">
+          <FontAwesomeIcon 
+            icon={project.icon} 
+            className="text-[#ff4500] text-xl" 
+          />
+        </div>
+      </motion.div>
+    );
   };
 
   return (
@@ -78,23 +140,21 @@ const Projects = () => {
         >
           {projects.map((project) => (
             <motion.div
-              key={project.id}
+              key={project.title}
               variants={cardVariants}
               whileHover={{ y: -5 }}
               className="overflow-hidden rounded-lg bg-[#1a1a1a] shadow-xl"
             >
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="h-64 md:h-full relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#ff4500]/50 flex items-center justify-center">
-                    <span className="text-white text-lg font-medium">Project Image</span>
-                  </div>
-                  {/* Placeholder instead of actual image since we don't have images yet */}
-                  {/* <Image 
-                    src={project.image} 
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  /> */}
+                <div className="aspect-[4/3] relative overflow-hidden">
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
                 </div>
 
                 <div className="p-6 flex flex-col h-full">
@@ -102,47 +162,7 @@ const Projects = () => {
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-[#ff4500] mb-4">{project.period}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.skills.map((skill) => (
-                        <span 
-                          key={skill} 
-                          className="px-3 py-1 text-sm bg-[#ff4500]/20 text-[#ff7e47] rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <ul className="space-y-2 mb-6">
-                      {project.description.map((item, i) => (
-                        <li 
-                          key={i}
-                          className="flex items-start text-gray-300"
-                        >
-                          <div className="min-w-5 mr-2 mt-1.5">
-                            <div className="w-2 h-2 bg-[#ff4500] rounded-full"></div>
-                          </div>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="mt-auto flex gap-4">
-                    {project.links.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-[#ff4500] transition-colors duration-300"
-                        aria-label={link.label}
-                      >
-                        <FontAwesomeIcon icon={link.icon} className="h-6 w-6" />
-                      </a>
-                    ))}
+                    <p className="text-[#ff4500] mb-4">{project.description}</p>
                   </div>
                 </div>
               </div>

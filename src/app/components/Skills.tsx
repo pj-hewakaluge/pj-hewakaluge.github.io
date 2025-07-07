@@ -143,41 +143,6 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          <div className="bg-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="w-12 h-12 bg-[#ff4500]/20 rounded-full flex items-center justify-center mx-auto mb-3">
-              <FontAwesomeIcon icon={faCogs} className="text-[#ff4500] text-xl" />
-            </div>
-            <h4 className="text-white font-medium">CAD Design</h4>
-          </div>
-          
-          <div className="bg-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="w-12 h-12 bg-[#ff4500]/20 rounded-full flex items-center justify-center mx-auto mb-3">
-              <FontAwesomeIcon icon={faLayerGroup} className="text-[#ff4500] text-xl" />
-            </div>
-            <h4 className="text-white font-medium">Composite Materials</h4>
-          </div>
-          
-          <div className="bg-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="w-12 h-12 bg-[#ff4500]/20 rounded-full flex items-center justify-center mx-auto mb-3">
-              <FontAwesomeIcon icon={faCubes} className="text-[#ff4500] text-xl" />
-            </div>
-            <h4 className="text-white font-medium">3D Printing</h4>
-          </div>
-          
-          <div className="bg-[#1e1e1e] rounded-lg p-4 text-center">
-            <div className="w-12 h-12 bg-[#ff4500]/20 rounded-full flex items-center justify-center mx-auto mb-3">
-              <FontAwesomeIcon icon={faHammer} className="text-[#ff4500] text-xl" />
-            </div>
-            <h4 className="text-white font-medium">Manufacturing</h4>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

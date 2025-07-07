@@ -29,7 +29,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mb-4"
             >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#ff4500]">
                 Pankaja Hewakaluge
               </h1>
             </motion.div>

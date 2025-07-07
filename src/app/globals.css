@@ -32,14 +32,19 @@ body {
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  cursor: url('/images/rocket-cursor.svg') 16 16, auto;
+  /* cursor: url('/images/rocket-cursor.svg') 16 16, auto; */
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
 }
 
 /* Create a smaller cursor for clicking interactions */
+/*
 a, button, input[type="submit"], 
 [role="button"], [tabindex="0"] {
   cursor: url('/images/rocket-cursor-small.svg') 12 12, pointer;
 }
+*/
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -84,7 +89,35 @@ a, button, input[type="submit"],
   border-image: linear-gradient(to right, var(--primary), var(--secondary)) 1;
 }
 
-/* Enhance gear visibility */
+/* Gear background styles */
 .gear-highlight {
-  filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.5));
+  filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.3));
+  mix-blend-mode: multiply;
+  will-change: transform;
+  position: relative;
+  z-index: -1;
+}
+
+/* Ensure content stays above gears but doesn't block them */
+main {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  isolation: isolate;
+}
+
+/* Ensure sections with dark backgrounds don't hide gears */
+section {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  isolation: isolate;
+}
+
+/* Make sure the main container doesn't block gears */
+.container {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  isolation: isolate;
 }

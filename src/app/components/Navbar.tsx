@@ -41,15 +41,8 @@ const Navbar = () => {
         scrolled ? 'bg-[#121212]/95 backdrop-blur-sm py-2 shadow-lg' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold"
-        >
-          <Link href="#home" className="text-gradient">PH</Link>
-        </motion.div>
+      <div className="container mx-auto px-4 flex justify-center items-center relative">
+        {/* Removed PH initials/logo from the top left */}
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
@@ -74,7 +67,7 @@ const Navbar = () => {
         </div>
 
         {/* Social Icons - Desktop */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 absolute right-0 top-1/2 -translate-y-1/2">
           {socialLinks.map((link, index) => (
             <motion.a
               key={link.name}

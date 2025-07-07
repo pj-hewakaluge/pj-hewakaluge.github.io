@@ -52,7 +52,7 @@ const Education = () => {
             variants={itemVariants}
             className="bg-[#1e1e1e] rounded-lg p-6 md:p-8 shadow-lg border-l-4 border-[#ff4500] relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#ff4500]/20 to-transparent rounded-bl-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+
             
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -69,7 +69,7 @@ const Education = () => {
               </ul>
 
               <div className="mt-6 pt-6 border-t border-gray-700 flex flex-wrap gap-3">
-                <span className="px-3 py-1 bg-[#ff4500]/20 text-[#ff7e47] rounded-full text-sm">CAD Design</span>
+                <span className="px-3 py-1 bg-[#ff4500]/20 text-[#ff7e47] rounded-full text-sm">CAD</span>
                 <span className="px-3 py-1 bg-[#ff4500]/20 text-[#ff7e47] rounded-full text-sm">Material Science</span>
                 <span className="px-3 py-1 bg-[#ff4500]/20 text-[#ff7e47] rounded-full text-sm">Fluid Mechanics</span>
                 <span className="px-3 py-1 bg-[#ff4500]/20 text-[#ff7e47] rounded-full text-sm">Thermodynamics</span>
